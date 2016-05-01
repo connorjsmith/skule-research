@@ -4,6 +4,8 @@
   "description": "A research portal for skule",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/www",
+    "debug": "env DEBUG='*' node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +20,14 @@
   "homepage": "https://github.com/connorjsmith/skule-research#readme",
   "dependencies": {
     "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react-dom": "^15.0.1",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "hjs": "~0.0.6",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.7",
