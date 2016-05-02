@@ -3,9 +3,16 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-     src:'./src/js/',
+     "bundle.min" :'./src/js/'
   },
-  output: { path: path.join(__dirname, "public", "javascripts"), filename: 'bundle.js' },
+  devtool: "source-map",
+  output: { path: path.join(__dirname, "public", "javascripts"), filename: '[name].js' },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
+  ],
   module: {
     loaders: [
       {
