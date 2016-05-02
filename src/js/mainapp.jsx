@@ -8,4 +8,6 @@ class Hello extends React.Component {
 }
 
 var container = document.getElementById("container");
+// TODO: search, accessing the express.js resources defined in the routes
+// TODO: react-router for the views
 ReactDOM.render(<Hello/>, container);
