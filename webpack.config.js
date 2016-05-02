@@ -2,8 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './app.js',
-  output: { path: __dirname, filename: 'bundle.js' },
+  entry: {
+     src:'./src/js/',
+  },
+  output: { path: path.join(__dirname, "public", "javascripts"), filename: 'bundle.js' },
   module: {
     loaders: [
       {
@@ -13,7 +15,7 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      }
+      },
     ]
   },
 };
