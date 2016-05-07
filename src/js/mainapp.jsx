@@ -5,6 +5,7 @@ import queryString from 'query-string';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.bindPopState();
     // Look for a URL parameter and expand if present
     let queryDict = queryString.parse(location.search);
     let textQuery = queryDict['q'] === undefined ? null : queryDict['q'];
@@ -22,6 +23,10 @@ class SearchBar extends React.Component {
 
     // Fix ES6 bindings
     this.unexpandedSearch = this.unexpandedSearch.bind(this);
+  }
+  // TODO: bind to window.onpopstate to update the query term
+  bindPopState() {
+    window.onpopstate = function() { console.log("Popping State!!"); };
   }
   unexpandedSearch(event) {
     let query = event.target.elements["query"].value;
@@ -50,6 +55,4 @@ class SearchBar extends React.Component {
 }
 
 var container = document.getElementById("container");
-// TODO: search, accessing the express.js resources defined in the routes
-// TODO: react-router for the views
 ReactDOM.render(<SearchBar/>, container);
